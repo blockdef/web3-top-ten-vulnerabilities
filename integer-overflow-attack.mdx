@@ -1,11 +1,26 @@
-# Hello, world!
+---
+title: Integer Overflow Attack
+---
 
-Below is an example of markdown in JSX.
+## Description
 
-<div style={{backgroundColor: 'violet', padding: '1rem'}}>
-  Try and change the background color to `tomato`.
-</div>
+An integer overflow attack is a type of vulnerability in smart contracts where arithmetic operations on integers can result in unexpected behavior or vulnerabilities when the result exceeds the maximum representable value for that data type.
 
-This is a sample MDX file demonstrating the usage of npm packages like `rehype-autolink-headings`, `rehype-highlight`, `remark-gfm`, and `remarkToc`.
+## Summary
 
-## Hello
+Integer overflow attacks occur when the result of an arithmetic operation exceeds the maximum value that can be stored in the data type. Attackers exploit this vulnerability to manipulate smart contract behavior, often resulting in loss of funds or unintended consequences.
+
+## Real-World Examples
+
+One notable example of an integer overflow attack is the DAO (Decentralized Autonomous Organization) hack in 2016, where an attacker exploited an integer overflow vulnerability in a smart contract to siphon off millions of dollars worth of Ether.
+
+## Code Example
+
+```solidity
+contract IntegerOverflow {
+    uint256 public balance = 100;
+
+    function addToBalance(uint256 _addition) public {
+        balance += _addition; // Vulnerable to integer overflow
+    }
+}
