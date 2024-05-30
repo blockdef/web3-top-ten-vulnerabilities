@@ -24,3 +24,12 @@ contract IntegerOverflow {
         balance += _addition; // Vulnerable to integer overflow
     }
 }
+
+## Prevention Measures
+
+To prevent integer overflow attacks, developers should use safe arithmetic libraries, perform bounds checking, and use data types with fixed sizes. Additionally, using libraries such as SafeMath in Solidity can help mitigate this vulnerability.
+
+## References
+
+- [OpenZeppelin SafeMath Library](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/utils/math/SafeMath.sol): Safe arithmetic operations library for Solidity.
+- [The DAO Hack](https://hackingdistributed.com/2016/06/18/analysis-of-the-dao-exploit/): Analysis of the DAO hack and the integer overflow vulnerability exploited by the attacker.
