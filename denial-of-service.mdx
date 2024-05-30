@@ -1,28 +1,27 @@
-# GFM
+---
+title: Denial of Service Attacks on Ethereum Network
+---
 
-## Autolink literals
+# Denial of Service Attacks on Ethereum Network
 
-www.example.com, https://example.com, and contact@example.com.
+## Introduction
 
-## Footnote
+The Ethereum network, a decentralized platform for building smart contracts and decentralized applications (DApps), is susceptible to various forms of attacks, including denial of service (DoS) attacks. These attacks aim to disrupt the normal functioning of the network by overwhelming it with malicious requests or transactions, ultimately hindering legitimate users from accessing network resources or processing transactions. While Ethereum's underlying technology is robust, DoS attacks remain a persistent threat due to the network's open and permissionless nature.
 
-A note[^1]
+## Types of Denial of Service Attacks
 
-[^1]: Big note.
+### 1. Transaction Spamming
 
-## Strikethrough
+Transaction spamming involves flooding the Ethereum network with a large volume of low-value transactions. These transactions typically carry minimal fees or no value at all, yet they consume network resources and congest the transaction pool. As a result, legitimate transactions may face delays or higher fees due to increased competition for block space. Here's a simplified example of transaction spamming using web3.js:
 
-~one~ or ~~two~~ tildes.
+```javascript
+const Web3 = require('web3');
+const web3 = new Web3('https://mainnet.infura.io/v3/YOUR_INFURA_PROJECT_ID');
 
-## Table
-
-| a | b  |  c |  d  |
-| - | :- | -: | :-: |
-
-## Tasklist
-
-* [ ] to do
-* [x] done
-
-Markdown Guide: https://www.markdownguide.org/
-MDX Documentation: https://mdxjs.com/
+for (let i = 0; i < 1000; i++) {
+    web3.eth.sendTransaction({
+        from: '0xYOURADDRESS',
+        to: '0xRECIPIENTADDRESS',
+        value: web3.utils.toWei('0.001', 'ether')
+    });
+}
